@@ -8,7 +8,7 @@ print(tf.__version__)
 
 X = np.arange(-10.0, 10.0, 1e-2)
 np.random.shuffle(X)
-y =  2.0 * X + 1.0
+y =  5.0 * X + 3.0
 
 train_end = int(0.6 * len(X))
 test_start = int(0.8 * len(X))
@@ -26,7 +26,7 @@ linear_model.compile(optimizer=tf.keras.optimizers.SGD(), loss=tf.keras.losses.m
 print(linear_model.summary())
 
 linear_model.fit(X_train, y_train, validation_data=(X_val, y_val), epochs=20)
-print(linear_model.predict([ [0.0], [2.0], [3.1], [4.2], [5.2] ] ).tolist() )   
+print(linear_model.predict([ [0.5], [2.7], [3.8], [4.0], [5.9] ] ).tolist() )   
 
 export_path = 'linear-model/1/'
 tf.saved_model.save(linear_model, os.path.join('./',export_path))
